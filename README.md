@@ -9,14 +9,14 @@
 ## Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed.
 
-### Bianca Basis 
+Bianca Basis 
 * SAP Basis administrator
 * Maintains RFC and data authorizations for the Azure Data Factory(ADF) SAP Table Connector 
 * Monitors the RFC memory consumption and general performance 
 * Contact for SAP ERP related troubleshooting  
 
 
-### Sabrina Sap  
+Sabrina Sap  
 * DWH and BI developer 
 * SAP domain and data model expert 
 * SQL and data engineering knowledge 
@@ -24,7 +24,7 @@ For the creation and implementation of the scenario three types of personas were
 * Contact person for LoB user 
 
 
-### Daniel Data-Science
+ Daniel Data-Science
 * Data-Scientist 
 * Fluent in Scala and Python 
 * Builds M/L models on SAP data 
@@ -57,7 +57,10 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 ### SAP data visualization and M/L model creation 
 In this scenario a Data Scientist utilizes Apache Spark and Spark Notebook to implement machine learning models on SAP ERP data. Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
 
+The scenario was designed based on the following tools and services 
 
-* Apache Spark Notebooks
+* Apache Spark Pools 
+* Apache Spark Notebooks 
+* Python libraries like Pandas, Matplotlib or Seaborn 
 
 
