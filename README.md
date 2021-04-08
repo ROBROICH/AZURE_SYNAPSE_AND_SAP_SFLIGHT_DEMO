@@ -30,4 +30,34 @@ For the creation and implementation of the scenario three types of personas were
 * Builds M/L models on SAP data 
 * Builds on Sabrina's models 
 
-![ Scenario persona description](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
+
+
+Based on the personas and expertise described above, two scenario or use-cases were defined and implemented. 
+
+### SAP data model discovery and exploration 
+This use-case is conceptually designed for rapid prototyping and piloting of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the preparation for productive DWH implementations. 
+
+Before creating the final DWH data models and data ingestion pipelines, certain SAP data model and customer specific data discovery and exploration tasks have typically to be executed: 
+* Identify custom columns (Z-fields)
+* Filled and empty columns in SAP tables
+* Identify timestamp columns for CDC 
+* Identify partition criteria 
+
+This scenario is fully integrated into Azure Synapse Workspaces using the following Azure data platform and Azure Synapse services and tools: 
+
+* Azure Data Lake Gen2 
+* Azure Synapse serverless SQL pools 
+* Azure Synapse Pipelines
+* Microsoft PowerBI (Integrated into Azure Synapse Workspace)
+
+![ scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
+
+
+
+### SAP data visualization and M/L model creation 
+In this scenario a Data Scientist utilizes Apache Spark and Spark Notebook to implement machine learning models on SAP ERP data. Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
+
+
+* Apache Spark Notebooks
+
+
