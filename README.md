@@ -5,7 +5,8 @@ To demonstrate the SAP integration with a well-known, less complex and repeatabl
 
 The motivation for creating this E2E scenario is to demonstrate, how SAP ERP data is practically processed inside the Data-Warehouse(DWH) management components and services of Azure Synapse. 
 This documentation is work in progress and current plan is to continuously extend the scenarios and documentation.  
- The current backlog: 
+
+The current backlog: 
  * Automated deployment of the scenarios 
  * Extended Data-Warehouse scenarios with Change Data Capture(CDC) handling
  * Azure Purview m integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
