@@ -59,7 +59,7 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 
 ![Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png)
 
-### Scenario 2: SAP data visualization and M/L model creation 
+### Scenario 2: SAP data visualization and M/L model creation using Spark Notebooks
 
 In this scenario a Data Scientist utilizes Apache Spark and Spark Notebooks to implement machine learning models on SAP ERP data. 
 Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
