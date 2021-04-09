@@ -1,5 +1,7 @@
-# 🛫 Azure Synapse and SAP SFlight integration scenario 🛫
- This article will describe an End to End(E2E) scenario to demonstrate the integration between Azure Synapse(SQL Data-Warehouse) and a SAP S/4HANA(ERP) on Azure system. To demonstrate SAP integration with a well known, less complex data model and to make the scenario repeatable, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
+# 🛫 Azure Synapse and SAP SFlight integration scenario
+ This tutorial will describe an End to End(E2E) scenario to demonstrate the integration between Azure Synapse(SQL Data-Warehouse) and a SAP S/4HANA on Azure(ERP) system. 
+ 
+ To demonstrate the SAP integration with a well known, less complex data model and to make the scenario repeatable, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
 
  The motivation for creating this E2E is to demonstrate, how SAP data is potentially handled within the different Data-Warehouse(DWH) layers and services of Azure Synapse. 
 
@@ -12,7 +14,7 @@
  * Purview metadata catalog integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
  * Automated deployment via CI/CD pipeline from Github
 
-## 👩‍💻 Scenario use-case and persona description 👩‍💻
+## 👩‍💻 Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed.
 
 __Bianca Basis__
@@ -65,7 +67,7 @@ The scenario was designed based on the following tools and services:
 * Python libraries like Pandas, Matplotlib or Seaborn 
 
 
-## 🗺️ High level architecture overview and scenario implementation 🗺️
+## 🗺️ High level architecture overview and scenario implementation 
 The architecture and selected components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. 
 
 ![Scenario architecture](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/architecture.png?raw=true)
@@ -171,12 +173,12 @@ As well important to mention is the seamless integration of the PBI workspace in
 6. __Create advanced visualizations leveraging Spark Dataframes and Apache Spark Notebooks__
 
 In this example a Data Engineer or Data-Scientist is enabled to create advanced visualizations using Spark Notebooks and Python Libraries like the Advanced Data Analysis Library (Pandas).  
+Additional demonstrated features are queries on the parquet files using SparkSQL. 
+
+For using these services an Apache Spark pool was deployed and made available within the Synapse Studio. 
 
 
-Additional demonstrated features are queries on the parquet files using SparkSQL or the creation of Spark tables. For using these services an Apache Spark pool was deployed and made available within the Synapse Studio. 
-
-
-
+![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
 
 
 
