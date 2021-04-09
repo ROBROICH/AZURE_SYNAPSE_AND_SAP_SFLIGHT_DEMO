@@ -13,6 +13,8 @@
  * Purview metadata catalog integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
  
 
+ ![ scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
+
 ## 👩‍💻 Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed:
 
@@ -57,14 +59,15 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 * Azure Synapse Pipelines
 * Microsoft PowerBI (Integrated into Azure Synapse Workspace)
 
-![ scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
+![Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png)
+
 
 ### SAP data visualization and M/L model creation 
 In this scenario a Data Scientist utilizes Apache Spark and Spark Notebook to implement machine learning models on SAP ERP data. 
 
 Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
 
-The scenario was designed based on the following tools and services:
+The scenario was designed based on the following Azure Synapse tools and services:
 * Apache Spark Pools 
 * Apache Spark Notebooks 
 * Python libraries like Pandas, Matplotlib or Seaborn 
@@ -80,10 +83,10 @@ The architecture and components were selected according to the capabilities prov
 
 The scenario was implemented on a SAP S/4HANA demo system running on Azure.  
 
-Further information about running SAP S/4HANA with virtual Machines on Azure can be found 
+Further information about running SAP S/4HANA with Virtual Machines on Azure as infrastructue can be found 
 [here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
 
-Due to the integration via the Self hosted integration runtime, the scenario could as well be built with additional deployment options for S/4HANA like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using options like VNet-peering.
+Due to the integration via the Self hosted integration runtime, the scenario could as well be implemented for additional deployment options like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using options like VNet-peering.
 
 
 2. __Self hosted Integration Runtime__
@@ -102,7 +105,7 @@ Detailed information for the required SAP Netweaver configuration can be found [
 
 For data ingestion from SAP S/4HANA to Azure Data Lake Gen2 an Azure Synapse Pipeline was implemented. 
 
-The data extraction interface from SAP to the Pipeline is the Azure Data Factory(ADF) SAP table connector. 
+The data extraction interface from SAP to the Synapse Pipeline is the Azure Data Factory(ADF) SAP table connector. 
 The SAP table connectors enables data engineers to configure SAP ABAP tables for data extraction by the Azure Synapse Pipeline. 
 
 The Copy Data tools provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. 
@@ -111,7 +114,7 @@ Data engineers have the option to mass select and preview SAP tables in a single
 
 ![Copy data tool mass selection](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool1.png?raw=true)
 
-Additional ADF SAP Table connector related topics like timestamp based change data capture (CDC) or partitioning options and strategies will be covered in the near future in extension to this initial scenario. 
+Additional ADF SAP Table connector related topics like timestamp based change data capture (CDC) or partitioning options and strategies will be covered in the near future as extension to this initial scenario. 
 
 Further resources and additional reading about the ADF SAP Table Connector: 
 
@@ -185,12 +188,6 @@ For using these services an Apache Spark pool was deployed and made available wi
 
 
 ![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
-
-
-
-
-
-
 
 
 
