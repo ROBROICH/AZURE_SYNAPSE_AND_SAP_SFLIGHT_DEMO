@@ -9,7 +9,7 @@ This documentation is work in progress and current plan is to continuously exten
 The current backlog: 
  * Automated deployment of the scenarios 
  * Extended Data-Warehouse scenarios with Change Data Capture(CDC) handling
- * Azure Purview m integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
+ * Azure Purview integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
   
   ![scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
 
@@ -156,8 +156,9 @@ SELECT * FROM
 6. __PowerBI workspace with Direct Query connection to SQL view__
 
 For creating the first report pilots and prototypes based on the SAP ERP data, a semantical data model was created with Microsoft Power BI(PBI). This data model defines the relationship between the SFLIGHT tables and adds additional semantical information like DAX(Calculated) measures, calculated fields, aggregations and hierarchies.
+
 In this scenario the Direct Query interface was used to create the connection between the PBI data model, Azure Synapse SQL views and the underlying parquet files stored on ADLS. 
-As well important to mention for is the seamless integration of the PBI workspace into the Synapse Studio development environment. 
+As well important to mention is the seamless integration of the PBI workspace into the Synapse Studio development environment. 
 
 ![PowerBI](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/PB1.png?raw=true)
 
