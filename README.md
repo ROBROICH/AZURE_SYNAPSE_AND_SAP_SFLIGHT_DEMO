@@ -3,9 +3,14 @@
 
  The motivation for creating this E2E is to demonstrate, how SAP data is potentially handled within the different Data-Warehouse(DWH) layers and services of Azure Synapse. 
 
- The implementation was done using Azure Synapse and it's dedicated DWH-tools and -services. 
+ The implementation was done using Azure Synapse and it's specific DWH-tools and -services. 
 
  This documentation is work in progress and current plan is to continuously extend the scenarios and documentation.  
+
+ The current backlog: 
+ * Extended Data-Warehouse scenario with Change Data Capture(CDC) handling
+ * Purview metadata catalog integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
+ * Automated deployment via CI/CD pipeline from Github
 
 ## Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed.
@@ -37,8 +42,8 @@ This use-case is conceptually designed for rapid prototyping and piloting of SAP
 Before creating the final DWH data models and data ingestion pipelines, certain SAP data model and customer specific data discovery and exploration tasks have typically to be executed: 
 * Identify custom columns (Z-fields)
 * Filled and empty columns in SAP tables
-* Identify timestamp columns for CDC 
-* Identify partition criteria 
+* Identify timestamp columns for Change Data Capture  
+* Identify partition criteria and filters for efficient data replication 
 
 This scenario is fully integrated into Azure Synapse Workspaces using the following Azure data platform and Azure Synapse services and tools: 
 
@@ -111,13 +116,13 @@ Further resources and additional reading about the ADF SAP Table Connector:
 
 ![Copy data tool configuration](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool2.png?raw=true)
 
-3. __SAP ABAP tables stored as parquet files on Azure Data Lake (ADL) Gen 2__
+4. __SAP ABAP tables stored as parquet files on Azure Data Lake (ADL) Gen 2__
 
-After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Gen2(ADLS Gen2) folder and are ready for consumption by different consumers like Azure Synapse Pipelines , for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. 
+After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. Typical consumers would be Azure Synapse Pipelines, for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. 
 
 Not (yet) covered in the current scenarios and documentation is the potential integration with the [Microsoft Common Data Model](https://github.com/Microsoft/CDM) (CDM). 
 
-CDM would allow to maintain the business terms and schema for typical SAP model specific tables and columns like BSEG, VBAP as semantic extension to the raw data(column names) exported in the parquet file. 
+CDM would allow to maintain the business terms and schema for typical SAP model specific tables and columns like BSEG, VBAP as metadata in addition to the raw data(column names) exported in the parquet file. 
 
 In addition it would be possible to maintain the relationships between extracted SAP tables. 
 This will allow tools like [Azure Data Factory ](https://docs.microsoft.com/en-us/azure/data-factory/format-common-data-model) or Microsoft PowerBI to read the CDM manifest file and consume the maintained metadata information as described [here](https://powerbi.microsoft.com/en-us/blog/whats-new-in-dataflows-april-2021/).
@@ -131,5 +136,9 @@ Further resources and additional reading about the first ideas and concepts abou
 * [From SAP S/4HANA Core Data Services (CDS) to the Common Data Model (CDM) on Azure Data Lake Gen2 (ADLS Gen2)](https://github.com/ROBROICH/SAP_AND_COMMON_DATA_MODEL_DEMO)
 
 ![Microsoft Common Data Model](https://powerbiblogscdn.azureedge.net/wp-content/uploads/2021/04/CDM-universe-graphic.png)
+
+5. __Azure Synapse serverless pool to create SQL views on parquet files__
+
+For enabling the data exploration and discovery use case on the SAP data stored in the data lake, the parquet files were queried using Synapse Serverless SQL Pools and T-SQL. Key aspect for efficient and fast data exploration is the option to create SQL views with auto detection (infer) of the schema from the underlying data lake files.
 
 
