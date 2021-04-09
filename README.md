@@ -81,10 +81,7 @@ The architecture and components were selected according to the capabilities prov
 
 1. __SAP S/4HANA on Azure Virtual Machines (VMs)__
 
-The scenario was implemented on a SAP S/4HANA demo system running on Azure.  
-
-Further information about running SAP S/4HANA with Virtual Machines on Azure as infrastructue can be found 
-[here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
+The scenario was implemented on a SAP S/4HANA demo system running on Azure.   Further information about running SAP S/4HANA with Virtual Machines on Azure as infrastructure can be found [here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
 
 Due to the integration via the Self hosted integration runtime, the scenario could as well be implemented for additional deployment options like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using options like VNet-peering.
 
@@ -105,12 +102,9 @@ Detailed information for the required SAP Netweaver configuration can be found [
 
 For data ingestion from SAP S/4HANA to Azure Data Lake Gen2 an Azure Synapse Pipeline was implemented. 
 
-The data extraction interface from SAP to the Synapse Pipeline is the Azure Data Factory(ADF) SAP table connector. 
-The SAP table connectors enables data engineers to configure SAP ABAP tables for data extraction by the Azure Synapse Pipeline. 
+The data extraction interface from SAP to the Synapse Pipeline is the Azure Data Factory(ADF) SAP table connector. The SAP table connectors enables data engineers to configure SAP ABAP tables for data extraction by the Azure Synapse Pipeline. 
 
-The Copy Data tools provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. 
-
-Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. By providing a responsive design, the Copy Data Tool enables an efficient configuration of the required SAP tables. 
+The Copy Data tools provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. By providing a responsive design, the Copy Data Tool enables an efficient configuration of the required SAP tables. 
 
 ![Copy data tool mass selection](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool1.png?raw=true)
 
@@ -135,13 +129,9 @@ Further resources and additional reading about the ADF SAP Table Connector:
 
 After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Storage Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. 
 
-Typical consumers would be Azure Synapse Pipelines, for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. 
+Typical consumers would be Azure Synapse Pipelines, for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. Not (yet) covered in the current scenarios and documentation is the potential integration with the [Microsoft Common Data Model](https://github.com/Microsoft/CDM) (CDM). 
 
-Not (yet) covered in the current scenarios and documentation is the potential integration with the [Microsoft Common Data Model](https://github.com/Microsoft/CDM) (CDM). 
-
-CDM would allow to maintain the business terms and schema for typical SAP model specific tables and columns like BSEG, VBAP as metadata in addition to the raw data(column names) exported in the parquet file. 
-
-In addition it would be possible to maintain the relationships between extracted SAP tables. 
+CDM would allow to maintain the business terms and schema for typical SAP model specific tables and columns like BSEG, VBAP as metadata in addition to the raw data(column names) exported in the parquet file. In addition it would be possible to maintain the relationships between extracted SAP tables. 
 This will allow tools like [Azure Data Factory ](https://docs.microsoft.com/en-us/azure/data-factory/format-common-data-model) or Microsoft PowerBI to read the CDM manifest file and consume the maintained metadata information as described [here](https://powerbi.microsoft.com/en-us/blog/whats-new-in-dataflows-april-2021/).
 
 Further resources and additional reading about the first ideas and concepts about integrating SAP semantics with the Microsoft Common Data Model: 
@@ -188,6 +178,7 @@ For using these services an Apache Spark pool was deployed and made available wi
 
 
 ![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
+
 
 
 
