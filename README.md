@@ -14,7 +14,7 @@
  
 
 ## 👩‍💻 Scenario use-case and persona description 
-For the creation and implementation of the scenario three types of personas were assumed.
+For the creation and implementation of the scenario three types of personas were assumed:
 
 ![ personas](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
 
@@ -37,12 +37,12 @@ __Daniel Data-Science__
 * Builds M/L models on SAP data 
 * Builds on Sabrina's models 
 
-Based on the personas and expertise described above, two scenario or use-cases were defined and implemented.
+Based on the personas and expertise described above, two scenarios or use-cases were defined and implemented.
 
 
 
-### SAP data model discovery and exploration 
-This use-case is conceptually designed for rapid prototyping and piloting of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the preparation for productive DWH implementations. 
+### Scenario 1: SAP data model discovery and exploration 
+This use-case is conceptually designed for rapid prototyping and piloting on top of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the agile preparation for productive DWH implementations. 
 
 Before creating the final DWH data models and data ingestion pipelines, certain SAP data model and customer specific data discovery and exploration tasks have typically to be executed: 
 * Identify custom columns (Z-fields)
@@ -71,16 +71,19 @@ The scenario was designed based on the following tools and services:
 
 
 ## 🗺️ High level architecture overview and scenario implementation 
-The architecture and selected components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. 
+The architecture and components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. Each architecture layer and corresponding high-level implementation steps are described along the numbers marked on the architecture diagram. 
 
 ![Scenario architecture](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/architecture.png?raw=true)
 
 
 1. __SAP S/4HANA on Azure Virtual Machines (VMs)__
 
-The scenario was implemented on an Microsoft internal SAP S/4HANA demo system. 
-Further information about running SAP S/4HANA on Azure can be found 
+The scenario was implemented on a SAP S/4HANA demo system running on Azure.  
+
+Further information about running SAP S/4HANA with virtual Machines on Azure can be found 
 [here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
+
+Due to the integration via the Self hosted integration runtime, the scenario could as well be built with additional deployment options for S/4HANA like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using options like VNet-peering.
 
 
 2. __Self hosted Integration Runtime__
@@ -165,7 +168,7 @@ SELECT * FROM
 
 6. __PowerBI workspace with Direct Query connection to SQL view__
 
-For creating the first report pilots and prototypes based on the SAP data, a semantical data model was created in Microsoft Power BI(PBI). This data model defines the relationship between the SAP tables and adds additional semantical information like DAX measures, calculated fields, aggregations, hierarchies and formatting of fields. 
+For creating the first report pilots and prototypes based on the SAP data, a semantical data model was created in Microsoft Power BI(PBI). This data model defines the relationship between the SFIGHT tables and adds additional semantical information like DAX measures, calculated fields, aggregations, hierarchies and formatting of fields. 
 
 In this scenario the Direct Query interface was used to create the connection between the PBI data model and Azure Synapse SQL views and the underlying parquet files. 
 As well important to mention is the seamless integration of the PBI workspace into the Synapse Studio development environment. 
