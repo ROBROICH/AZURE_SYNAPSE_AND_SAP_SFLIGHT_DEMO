@@ -3,16 +3,15 @@
  
  To demonstrate the SAP integration with a well known, less complex data model and to make the scenario repeatable, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
 
- The motivation for creating this E2E is to demonstrate, how SAP data is potentially handled within the different Data-Warehouse(DWH) layers and services of Azure Synapse. 
-
- The implementation was done using Azure Synapse and it's specific DWH-tools and -services. 
+ The motivation for creating this E2E scenario is to demonstrate, how SAP data is potentially handled within the different Data-Warehouse(DWH) layers and services of Azure Synapse. 
 
  This documentation is work in progress and current plan is to continuously extend the scenarios and documentation.  
 
  The current backlog: 
+ * Automated deployment of the scenarios via CI/CD pipeline from Github
  * Extended Data-Warehouse scenario with Change Data Capture(CDC) handling
  * Purview metadata catalog integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
- * Automated deployment via CI/CD pipeline from Github
+ 
 
 ## 👩‍💻 Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed.
@@ -36,7 +35,9 @@ __Daniel Data-Science__
 * Builds M/L models on SAP data 
 * Builds on Sabrina's models 
 
-Based on the personas and expertise described above, two scenario or use-cases were defined and implemented. 
+Based on the personas and expertise described above, two scenario or use-cases were defined and implemented.
+
+![ personas](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
 
 ### SAP data model discovery and exploration 
 This use-case is conceptually designed for rapid prototyping and piloting of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the preparation for productive DWH implementations. 
@@ -179,8 +180,6 @@ For using these services an Apache Spark pool was deployed and made available wi
 
 
 ![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
-
-
 
 
 
