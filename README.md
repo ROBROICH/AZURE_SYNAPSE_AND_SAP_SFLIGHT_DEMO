@@ -1,4 +1,4 @@
-# Azure Synapse and SAP SFlight integration scenario 
+# 🛫 Azure Synapse and SAP SFlight integration scenario 🛫
  This article will describe an End to End(E2E) scenario to demonstrate the integration between Azure Synapse(SQL Data-Warehouse) and a SAP S/4HANA(ERP) on Azure system. To demonstrate SAP integration with a well known, less complex data model and to make the scenario repeatable, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
 
  The motivation for creating this E2E is to demonstrate, how SAP data is potentially handled within the different Data-Warehouse(DWH) layers and services of Azure Synapse. 
@@ -12,7 +12,7 @@
  * Purview metadata catalog integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
  * Automated deployment via CI/CD pipeline from Github
 
-## Scenario use-case and persona description 
+## 👩‍💻 Scenario use-case and persona description 👩‍💻
 For the creation and implementation of the scenario three types of personas were assumed.
 
 __Bianca Basis__
@@ -55,7 +55,9 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 ![ scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
 
 ### SAP data visualization and M/L model creation 
-In this scenario a Data Scientist utilizes Apache Spark and Spark Notebook to implement machine learning models on SAP ERP data. Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
+In this scenario a Data Scientist utilizes Apache Spark and Spark Notebook to implement machine learning models on SAP ERP data. 
+
+Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
 
 The scenario was designed based on the following tools and services:
 * Apache Spark Pools 
@@ -63,7 +65,7 @@ The scenario was designed based on the following tools and services:
 * Python libraries like Pandas, Matplotlib or Seaborn 
 
 
-## High level architecture overview 
+## 🗺️ High level architecture overview and scenario implementation 🗺️
 The architecture and selected components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. 
 
 ![Scenario architecture](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/architecture.png?raw=true)
@@ -79,6 +81,8 @@ Further information about running SAP S/4HANA on Azure can be found
 2. __Self hosted Integration Runtime__
 
 The Self Hosted Integration Runtime(SHIR) establishes the secure connection between the SAP system and the Azure Synapse Pipeline. 
+
+
 Technically SAP RFC interface and SAP Connector for .NET are used to establish the communication between the SAP system and the SHIR. 
 
 Detailed information for the required SAP Netweaver configuration can be found [here](https://docs.microsoft.com/en-us/azure/data-factory/connector-sap-table#prerequisites). 
@@ -116,9 +120,11 @@ Further resources and additional reading about the ADF SAP Table Connector:
 
 ![Copy data tool configuration](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool2.png?raw=true)
 
-4. __SAP ABAP tables stored as parquet files on Azure Data Lake (ADL) Gen 2__
+4. __SAP ABAP tables stored as parquet files on Azure Data Lake Storage (ADLS) Gen 2__
 
-After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. Typical consumers would be Azure Synapse Pipelines, for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. 
+After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Storage Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. 
+
+Typical consumers would be Azure Synapse Pipelines, for further transformations, for direct SQL-queries via Azure Synapse Serverless Pools or Spark Dataframes like in this scenario. 
 
 Not (yet) covered in the current scenarios and documentation is the potential integration with the [Microsoft Common Data Model](https://github.com/Microsoft/CDM) (CDM). 
 
@@ -137,8 +143,47 @@ Further resources and additional reading about the first ideas and concepts abou
 
 ![Microsoft Common Data Model](https://powerbiblogscdn.azureedge.net/wp-content/uploads/2021/04/CDM-universe-graphic.png)
 
-5. __Azure Synapse serverless pool to create SQL views on parquet files__
+5. __Azure Synapse serverless SQL pool to create SQL views on parquet files__
 
-For enabling the data exploration and discovery use case on the SAP data stored in the data lake, the parquet files were queried using Synapse Serverless SQL Pools and T-SQL. Key aspect for efficient and fast data exploration is the option to create SQL views with auto detection (infer) of the schema from the underlying data lake files.
+For enabling the data exploration and discovery use case on the SAP data stored in the data lake, the parquet files were queried using Synapse serverless SQL pool and T-SQL. Key aspect for efficient and fast data exploration is the option to create SQL views with auto detection (infer) of the schema from the underlying data lake files.
+
+```sql 
+-- Create SQL view from parquet file with schema auto detection. 
+CREATE VIEW FS1_SFLIGHT_MODEL.SBOOK AS
+SELECT * FROM
+    OPENROWSET(
+        BULK 'https://adlsv2.dfs.core.windows.net/sap/FS1-TABLE-SFLIGHT/SBOOK',
+        FORMAT='PARQUET'
+    ) AS [SBOOK];
+
+```
+
+6. __PowerBI workspace with Direct Query connection to SQL view__
+
+For creating the first report pilots and prototypes based on the SAP data, a semantical data model was created in Microsoft Power BI(PBI). This data model defines the relationship between the SAP tables and adds additional semantical information like DAX measures, calculated fields, aggregations, hierarchies and formatting of fields. 
+
+In this scenario the Direct Query interface was used to create the connection between the PBI data model and Azure Synapse SQL views and the underlying parquet files. 
+As well important to mention is the seamless integration of the PBI workspace into the Synapse Studio development environment. 
+
+![PowerBI](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/PB1.png?raw=true)
+
+
+6. __Create advanced visualizations leveraging Spark Dataframes and Apache Spark Notebooks__
+
+In this example a Data Engineer or Data-Scientist is enabled to create advanced visualizations using Spark Notebooks and Python Libraries like the Advanced Data Analysis Library (Pandas).  
+
+
+Additional demonstrated features are queries on the parquet files using SparkSQL or the creation of Spark tables. For using these services an Apache Spark pool was deployed and made available within the Synapse Studio. 
+
+
+
+
+
+
+
+
+
+
+
 
 
