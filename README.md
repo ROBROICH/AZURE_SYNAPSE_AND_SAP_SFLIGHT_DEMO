@@ -8,9 +8,8 @@ This documentation is work in progress and current plan is to continuously exten
  The current backlog: 
  * Automated deployment of the scenarios 
  * Extended Data-Warehouse scenarios with Change Data Capture(CDC) handling
- * Azure Purview m integration
- 
-  ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
+ * Azure Purview m integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
+  
   ![scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
 
 ## 👩‍💻 Scenario use-case and persona description 
