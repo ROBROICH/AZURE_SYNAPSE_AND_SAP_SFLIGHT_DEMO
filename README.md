@@ -122,12 +122,13 @@ Further resources and additional reading about the ADF SAP Table Connector:
 After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Storage Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. 
 
 Typical consumers would be Azure Synapse Pipelines, for further transformations, or for direct SQL-queries via Azure Synapse Serverless Pools could be used. 
-An additional option is the consumption with Spark Dataframes as demonstrated in this scenario. 
+An additional option is the consumption with Spark DataFrames as demonstrated in this scenario. 
 
 Not (yet) covered in the current scenarios and documentation is the potential integration with the [Microsoft Common Data Model](https://github.com/Microsoft/CDM) (CDM). 
 
 CDM would allow to maintain the business terms and schema information, for typical SAP model specific tables and columns like BSEG or VBAP, as metadata in addition to the raw data (table and column names) exported into the parquet file. In addition, it would be possible to maintain the relationships between extracted SAP tables. 
 This will allow tools like [Azure Data Factory ](https://docs.microsoft.com/en-us/azure/data-factory/format-common-data-model) or Microsoft PowerBI to read the CDM manifest file and consume the maintained metadata information as described [here](https://powerbi.microsoft.com/en-us/blog/whats-new-in-dataflows-april-2021/).
+
 Further resources and additional reading about the first ideas and concepts about integrating SAP semantics with the Microsoft Common Data Model: 
 
 * [Microsoft acquires ADRM Software, leader in large-scale, industry-specific data models](https://blogs.microsoft.com/blog/2020/06/18/microsoft-acquires-adrm-software-leader-in-large-scale-industry-specific-data-model)
