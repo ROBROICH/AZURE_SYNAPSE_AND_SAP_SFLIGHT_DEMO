@@ -62,6 +62,7 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 
 In this scenario a Data Scientist utilizes Apache Spark and Spark Notebooks to implement machine learning models on SAP ERP data. 
 Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
+
 The scenario was designed based on the following Azure Synapse tools and services:
 * Apache Spark Pools 
 * Apache Spark Notebooks 
@@ -76,7 +77,8 @@ Each architecture layer and corresponding high-level implementation steps are de
 1. __SAP S/4HANA on Azure Virtual Machines (VMs)__
 
 The scenario was implemented on an SAP S/4HANA demo system running on Azure. Further technical information about providing SAP S/4HANA with Virtual Machines on Azure as infrastructure can be found [here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
-Based on the integration via the Self hosted integration runtime, the scenario could as well be implemented for additional deployment options like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using networking options like VNet-peering.
+
+Due to the integration via the Self hosted integration runtime, the scenario could as well be implemented for additional deployment options like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using networking options like VNet-peering.
 
 
 2. __Self hosted Integration Runtime__
@@ -90,8 +92,12 @@ Detailed information for the required SAP Netweaver configuration can be found [
 
 For data ingestion from SAP S/4HANA to Azure Data Lake Gen2 an Azure Synapse Pipeline was implemented. 
 The data extraction interface, from the SAP ERP to the Synapse Pipeline, is the Azure Data Factory(ADF) SAP table connector. The SAP table connector enables data engineers to configure SAP ABAP tables for data extraction by the Azure Synapse Pipeline. 
-The Copy Data tool provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. By providing a responsive design for browsing over a large number of ABAP-tables, the Copy Data Tool enables an efficient bulk configuration of the required SAP tables. 
+The Copy Data tool provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. 
+
+By providing a responsive design for browsing over a large number of ABAP-tables, the Copy Data Tool enables an efficient bulk configuration of the required SAP tables:
+
 ![Copy data tool mass selection](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool1.png?raw=true)
+
 Additional ADF SAP Table connector related topics like timestamp-based change data capture (CDC) or partitioning options and strategies will be covered in the near future as extension to this initial scenario. 
 
 
