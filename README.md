@@ -3,7 +3,7 @@
  
 To demonstrate the SAP integration with a well-known, less complex and repeatable data model, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
 
-The motivation for creating this E2E scenario is to demonstrate, how SAP ERP data is theoretically processed inside the Data-Warehouse(DWH) management components and services of Azure Synapse. 
+The motivation for creating this E2E scenario is to demonstrate, how SAP ERP data is practically processed inside the Data-Warehouse(DWH) management components and services of Azure Synapse. 
 This documentation is work in progress and current plan is to continuously extend the scenarios and documentation.  
  The current backlog: 
  * Automated deployment of the scenarios 
