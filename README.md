@@ -8,10 +8,13 @@ This documentation is work in progress and current plan is to continuously exten
  The current backlog: 
  * Automated deployment of the scenarios 
  * Extended Data-Warehouse scenarios with Change Data Capture(CDC) handling
- * Azure Purview m integration ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
+ * Azure Purview m integration
+ 
+  ([Link](https://www.youtube.com/watch?v=Q9aIs9cnmps))
   ![scenario_exploration_and_discovery](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/scenario_exploration_and_discovery.png?raw=true)
 
 ## 👩‍💻 Scenario use-case and persona description 
+
 For the creation and implementation of the scenario three types of personas were assumed:
 ![personas](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
 
@@ -38,6 +41,7 @@ Based on the personas and expertise described above, two scenarios or use-cases 
 
 
 ### Scenario 1: SAP data model discovery and exploration 
+
 This use-case is conceptually designed for rapid prototyping and piloting on top of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the agile preparation for further productive DWH implementations. 
 
 Before creating the final DWH data models and data ingestion pipelines, certain SAP data model and customer specific data discovery and exploration tasks have typically to be executed: 
@@ -56,6 +60,7 @@ This scenario is fully integrated into Azure Synapse Workspaces using the follow
 ![Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png)
 
 ### SAP data visualization and M/L model creation 
+
 In this scenario a Data Scientist utilizes Apache Spark and Spark Notebooks to implement machine learning models on SAP ERP data. 
 Additional requirements are the option to use Python libraries for visualizations within the Apache Spark notebooks or to process large data volumes with Apache Spark. 
 The scenario was designed based on the following Azure Synapse tools and services:
@@ -66,9 +71,11 @@ The scenario was designed based on the following Azure Synapse tools and service
 ## 🗺️ High level architecture overview and scenario implementation 
 The architecture and components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. 
 Each architecture layer and corresponding high-level implementation steps are described along the numbers marked in the architecture diagram: 
+
 ![Scenario architecture](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/architecture.png?raw=true)
 
 1. __SAP S/4HANA on Azure Virtual Machines (VMs)__
+
 The scenario was implemented on an SAP S/4HANA demo system running on Azure. Further technical information about providing SAP S/4HANA with Virtual Machines on Azure as infrastructure can be found [here](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana).
 Based on the integration via the Self hosted integration runtime, the scenario could as well be implemented for additional deployment options like SAP HANA Enterprise Cloud(HEC) or S/4HANA Private Cloud Edition (PCE) on Azure using networking options like VNet-peering.
 
@@ -80,6 +87,7 @@ Detailed information for the required SAP Netweaver configuration can be found [
 [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
 
 3. __Azure Synapse Pipeline built with Copy Data Tool__
+
 For data ingestion from SAP S/4HANA to Azure Data Lake Gen2 an Azure Synapse Pipeline was implemented. 
 The data extraction interface, from the SAP ERP to the Synapse Pipeline, is the Azure Data Factory(ADF) SAP table connector. The SAP table connector enables data engineers to configure SAP ABAP tables for data extraction by the Azure Synapse Pipeline. 
 The Copy Data tool provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. By providing a responsive design for browsing over a large number of ABAP-tables, the Copy Data Tool enables an efficient bulk configuration of the required SAP tables. 
@@ -99,6 +107,7 @@ Further resources and additional reading about the ADF SAP Table Connector:
 ![Copy data tool configuration](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool2.png?raw=true)
 
 4. __SAP ABAP tables stored as parquet files on Azure Data Lake Storage (ADLS) Gen 2__
+
 After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Storage Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. 
 
 Typical consumers would be Azure Synapse Pipelines, for further transformations, or for direct SQL-queries via Azure Synapse Serverless Pools would be used. 
@@ -116,6 +125,7 @@ Further resources and additional reading about the first ideas and concepts abou
 ![Microsoft Common Data Model](https://powerbiblogscdn.azureedge.net/wp-content/uploads/2021/04/CDM-universe-graphic.png)
 
 5. __Azure Synapse serverless SQL pool to create SQL views on parquet files__
+
 For enabling the data exploration and discovery use cases on the SAP data stored in the data lake, the parquet files were queried using Synapse serverless SQL pools and T-SQL. Key aspect for efficient and fast data exploration is the option to create SQL views with auto detection (infer) of the schema from the underlying data lake files.
 
 ```sql 
