@@ -16,6 +16,8 @@
 ## 👩‍💻 Scenario use-case and persona description 
 For the creation and implementation of the scenario three types of personas were assumed.
 
+![ personas](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
+
 __Bianca Basis__
 * SAP Basis administrator
 * Maintains RFC and data authorizations for the Azure Data Factory(ADF) SAP Table Connector 
@@ -37,7 +39,7 @@ __Daniel Data-Science__
 
 Based on the personas and expertise described above, two scenario or use-cases were defined and implemented.
 
-![ personas](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/personas.png?raw=true)
+
 
 ### SAP data model discovery and exploration 
 This use-case is conceptually designed for rapid prototyping and piloting of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the preparation for productive DWH implementations. 
