@@ -83,6 +83,7 @@ Based on the integration via the Self hosted integration runtime, the scenario c
 
 The Self Hosted Integration Runtime(SHIR) establishes the secure connection between the SAP system and Azure Synapse. Technically SAP RFC interface and SAP Connector for .NET are used to establish the communication between the SAP system and the SHIR. 
 Detailed information for the required SAP Netweaver configuration can be found [here](https://docs.microsoft.com/en-us/azure/data-factory/connector-sap-table#prerequisites). 
+
 [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
 
 3. __Azure Synapse Pipeline built with Copy Data Tool__
@@ -92,6 +93,8 @@ The data extraction interface, from the SAP ERP to the Synapse Pipeline, is the 
 The Copy Data tool provides the capability to efficiently configure multiple SAP tables for extraction within a single Pipeline. Data engineers have the option to mass select and preview SAP tables in a single dialog as shown in the screenshot below. By providing a responsive design for browsing over a large number of ABAP-tables, the Copy Data Tool enables an efficient bulk configuration of the required SAP tables. 
 ![Copy data tool mass selection](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool1.png?raw=true)
 Additional ADF SAP Table connector related topics like timestamp-based change data capture (CDC) or partitioning options and strategies will be covered in the near future as extension to this initial scenario. 
+
+
 Further resources and additional reading about the ADF SAP Table Connector: 
 * [Copy data from an SAP table by using Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-sap-table)
 
