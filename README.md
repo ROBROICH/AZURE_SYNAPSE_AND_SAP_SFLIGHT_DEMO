@@ -114,6 +114,8 @@ Further resources and additional reading about the ADF SAP Table Connector:
 
 ![Copy data tool configuration](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/CopyDataTool2.png?raw=true)
 
+
+
 4. __SAP ABAP tables stored as parquet files on Azure Data Lake Storage (ADLS) Gen 2__
 
 After executing the Copy Data Pipeline, the SFLIGHT model related tables are stored in the compressed parquet file format in an Azure Data Lake Storage Gen2(ADLS Gen2) folder and are ready for consumption by different consumers. 
@@ -132,6 +134,8 @@ Further resources and additional reading about the first ideas and concepts abou
 
 ![Microsoft Common Data Model](https://powerbiblogscdn.azureedge.net/wp-content/uploads/2021/04/CDM-universe-graphic.png)
 
+
+
 5. __Azure Synapse serverless SQL pool to create SQL views on parquet files__
 
 For enabling the data exploration and discovery use cases on the SAP data stored in the data lake, the parquet files were queried using Synapse serverless SQL pools and T-SQL. Key aspect for efficient and fast data exploration is the option to create SQL views with auto detection (infer) of the schema from the underlying data lake files.
@@ -147,6 +151,7 @@ SELECT * FROM
 
 ```
 
+
 6. __PowerBI workspace with Direct Query connection to SQL view__
 
 For creating the first report pilots and prototypes based on the SAP ERP data, a semantical data model was created with Microsoft Power BI(PBI). This data model defines the relationship between the SFLIGHT tables and adds additional semantical information like DAX(Calculated) measures, calculated fields, aggregations and hierarchies.
@@ -155,7 +160,8 @@ As well important to mention for is the seamless integration of the PBI workspac
 
 ![PowerBI](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/PB1.png?raw=true)
 
-6. __Create advanced visualizations leveraging Spark Dataframes and Apache Spark Notebooks__
+
+7. __Create advanced visualizations leveraging Spark Dataframes and Apache Spark Notebooks__
 
 In this example a Data Engineer or Data-Scientist uses Apache Spark Notebooks to create advanced visualizations using Spark Notebooks and Python Libraries like the Advanced Data Analysis Library (Pandas).  
 Additional demonstrated features are queries on the parquet files using SparkSQL. 
