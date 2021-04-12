@@ -3,8 +3,8 @@
  
 To demonstrate the SAP integration with a well-known, less complex and repeatable data model, the SAP SFlight sample application was selected. Further information about the SAP SFlight sample application can be found [here](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/cf/21f304446011d189700000e8322d00/content.htm?no_cache=true).
 
-The motivation for creating this E2E scenario is to demonstrate, how SAP ERP data is practically processed inside the Data-Warehouse(DWH) management components and services of Azure Synapse. 
-This documentation is work in progress and current plan is to continuously extend the scenarios and documentation.  
+The motivation for creating this E2E scenario is to demonstrate, how SAP ERP data is practically processed using the Data-Warehouse(DWH) management components and services of Azure Synapse. 
+This documentation is work in progress and the current plan is to continuously extend the scenarios and documentation.  
 
 The current backlog: 
  * Automated deployment of the scenarios 
@@ -35,14 +35,14 @@ __Daniel Data-Science__
 * Data-Scientist 
 * Fluent in Scala and Python 
 * Builds M/L models on SAP data 
-* Builds on Sabrina's models 
+* Builds on Sabrina's curated models 
 
 Based on the personas and expertise described above, two scenarios or use-cases were defined and implemented.
 
 
 ### Scenario 1: SAP data model discovery and exploration 
 
-This use-case is conceptually designed for rapid prototyping and piloting on top of SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the agile preparation for further productive DWH implementations. 
+This use-case is conceptually designed for rapid prototyping and piloting with SAP ERP data using Azure Synapse and Microsoft PowerBI(PBI). These prototypes and pilots would be the agile preparation for further productive DWH implementations. 
 
 Before creating the final DWH data models and data ingestion pipelines, certain SAP data model and customer specific data discovery and exploration tasks have typically to be executed: 
 * Identify custom columns (Z-fields)
@@ -70,8 +70,9 @@ The scenario was designed based on the following Azure Synapse tools and service
 * Python libraries like Pandas, Matplotlib or Seaborn 
 
 ## 🗺️ High level architecture overview and scenario implementation 
-The architecture and components were selected according to the capabilities provided by the Modern Data Warehousing reference architecture. 
+The architecture and components were selected based on the capabilities provided by the [Modern Data Warehousing architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/modern-data-warehouse). 
 Each architecture layer and corresponding high-level implementation steps are described along the numbers marked in the architecture diagram: 
+
 
 ![Scenario architecture](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/architecture.png?raw=true)
 
@@ -84,7 +85,7 @@ Due to the integration via the Self hosted integration runtime, the scenario cou
 
 2. __Self hosted Integration Runtime__
 
-The Self Hosted Integration Runtime(SHIR) establishes the secure connection between the SAP system and Azure Synapse. Technically SAP RFC interface and SAP Connector for .NET are used to establish the communication between the SAP system and the SHIR. 
+The Self Hosted Integration Runtime(SHIR) establishes the secure connection between the SAP system and Azure Synapse. Technically the SAP Remote Function Call(RFC) interface and SAP Connector for .NET are used to establish the communication between the SAP system and the SHIR. 
 Detailed information for the required SAP Netweaver configuration can be found [here](https://docs.microsoft.com/en-us/azure/data-factory/connector-sap-table#prerequisites). 
 
 [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
@@ -186,15 +187,4 @@ Microsoft partners are as well always invited to collaborate on this document wi
 In case of comments, conceptual bugs or additional requirements please feel free to create issues on GitHub or reach out to the author via LinkedIn. 
 
 🙏 Many thanks for your time and reading the document until here! 🙏
-
-
-
-
-
-
-
-
-
-
-
 
