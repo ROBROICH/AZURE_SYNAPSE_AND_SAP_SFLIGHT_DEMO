@@ -176,6 +176,21 @@ For using these services an Apache Spark pool was deployed and made available wi
 
 ![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
 
+Nex to creating visualizations, the notebook also was used to create Spark tables using Python. 
+```python
+spark.sql("CREATE DATABASE IF NOT EXISTS SAPLAB_SFLIGHT")
+
+df_sbook = spark.read.parquet('abfss://sapfs1sflight@ftasaplabadlsv2.dfs.core.windows.net/FS1-TABLE-SFLIGHT/SBOOK')
+
+df_sbook.write.mode("overwrite").saveAsTable("SAPLAB_SFLIGHT.sbook")
+
+```
+These Spark tables could be created using Apache Spark with Python by a data engineer for easy consumption by a SQL-developer.  
+using a single SQL statement and Azure Synapse Serverless Pools:
+
+![Access to Spark table](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/QuerySparkTable.png?raw=true)
+
+
 ## Summary 
 Summarized this document provided a comprehensive overview about analytical integration scenarios and use-cases between Azure Synapse and data from an SAP ERP. 
 The description covered the following implementation steps:
@@ -187,4 +202,5 @@ Microsoft partners are as well always invited to collaborate on this document wi
 In case of comments, conceptual bugs or additional requirements please feel free to create issues on GitHub or reach out to the author via LinkedIn. 
 
 🙏 Many thanks for your time and reading the document until here! 🙏
+
 
