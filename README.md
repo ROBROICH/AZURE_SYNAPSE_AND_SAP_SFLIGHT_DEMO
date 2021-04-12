@@ -176,7 +176,7 @@ For using these services an Apache Spark pool was deployed and made available wi
 
 ![Spark Notebook](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/Spark_Notebook.png?raw=true)
 
-Nex to creating visualizations, the notebook also was used to create Spark tables using Python. 
+Next to creating visualizations, the notebook also was used to create Spark tables using Python. 
 ```python
 spark.sql("CREATE DATABASE IF NOT EXISTS SAPLAB_SFLIGHT")
 
@@ -202,5 +202,15 @@ Microsoft partners are as well always invited to collaborate on this document wi
 In case of comments, conceptual bugs or additional requirements please feel free to create issues on GitHub or reach out to the author via LinkedIn. 
 
 🙏 Many thanks for your time and reading the document until here! 🙏
+
+
+
+
+
+
+
+
+
+
 
 
