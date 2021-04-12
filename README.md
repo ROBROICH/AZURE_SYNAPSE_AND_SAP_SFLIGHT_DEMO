@@ -185,8 +185,7 @@ df_sbook = spark.read.parquet('abfss://sapfs1sflight@ftasaplabadlsv2.dfs.core.wi
 df_sbook.write.mode("overwrite").saveAsTable("SAPLAB_SFLIGHT.sbook")
 
 ```
-These Spark tables could be created using Apache Spark with Python by a data engineer for easy consumption by a SQL-developer.  
-using a single SQL statement and Azure Synapse Serverless Pools:
+These Spark tables were created using Apache Spark and Python by a data engineer for easy consumption by a SQL-developer using a single SQL statement and Azure Synapse Serverless Pools:
 
 ![Access to Spark table](https://github.com/ROBROICH/AZURE_SYNAPSE_AND_SAP_SFLIGHT_DEMO/blob/main/img/QuerySparkTable.png?raw=true)
 
